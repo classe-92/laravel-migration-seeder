@@ -74,7 +74,11 @@ npm run dev
 php artisan serve
 
 ```
+- Installare pacchetto per update migration:
+```
+composer require doctrine/dbal
 
+```
 ## Pubblicare su github
 
 ```
@@ -93,7 +97,64 @@ git push -u origin main
 
 - Creo database da phpmyadmin
 
-- Aggiunmgo configurazione a file .env
+- Aggiungo configurazione a file .env
+
+## Migration
+```php
+#creare le migration per le tabelle ecc
+
+php arisan make:migration create_nometabella_table
+
+
+#dentro il file  migration 
+	public function up()
+	{
+		Schema::create('pastas', function (Blueprint $table) {
+			$table->id();
+			$table->string('title', 50);
+			$table->text('description')->nullable();
+			$table->string('type', 20);
+			$table->string('image');
+			$table->string('cooking_time', 20);
+			$table->string('weight', 20);
+			$table->timestamps();
+		});
+	}
+
+	public function down()
+	{
+		Schema::dropIfExists('pastas');
+	}
+#per lanciare le migration
+
+php artisan migrate
+
+#controllo su phpmyadmin se c'è tutto
+#creo model per la tabella generata
+php artisan make:model Nometabellasingolare
+
+#preparo il seeder
+
+php artisan make:seeder NomeTableSeeder
+
+#apro il seeder e dentro c'è la funzione run()
+				$array_pasta = config('pasta');
+				foreach($array_pasta as $pasta_item) {
+						$new_pasta_object = new Pasta();
+						$new_pasta_object->title = $pasta_item['titolo'];
+						$new_pasta_object->description = $pasta_item['descrizione'];
+						$new_pasta_object->type = $pasta_item['tipo'];
+						$new_pasta_object->image = $pasta_item['src'];
+						$new_pasta_object->cooking_time = $pasta_item['cottura'];
+						$new_pasta_object->weight = $pasta_item['peso'];
+						$new_pasta_object->save();
+				}
+
+#controllo phpmyadmin se i dati sono inseriti
+
+#creo controller correggo il file della rotta e stampo in pagina con le view
+
+```
 
 ### Premium Partners
 
