@@ -89,7 +89,11 @@ git remote add origin your_git_url
 git push -u origin main
 
 ```
+## Creo migration e seeder
 
+- Creo database da phpmyadmin
+
+- Aggiunmgo configurazione a file .env
 
 ### Premium Partners
 
