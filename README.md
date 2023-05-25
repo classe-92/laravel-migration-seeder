@@ -103,8 +103,14 @@ git push -u origin main
 ```php
 #creare le migration per le tabelle ecc
 
+#per creazione:
 php arisan make:migration create_nometabella_table
 
+#per aggiunta campo nome migration:
+php arisan make:migration add_momecampo_to_nometabella_table
+
+#per modifica campi e tabelle nome migration:
+php arisan make:migration update_nometabella_table --table=nometabella
 
 #dentro il file  migration 
 	public function up()
@@ -150,6 +156,9 @@ php artisan make:seeder NomeTableSeeder
 						$new_pasta_object->save();
 				}
 
+#lancio il seeder:
+
+php artisan db:seed --class=NomeClasseSeeder
 #controllo phpmyadmin se i dati sono inseriti
 
 #creo controller correggo il file della rotta e stampo in pagina con le view
