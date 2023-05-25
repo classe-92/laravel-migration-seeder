@@ -14,6 +14,7 @@ return new class extends Migration {
     {
         Schema::table('houses', function (Blueprint $table) {
             $table->string('address', 255)->change();
+            //$table->renameColumn('address', 'indirizzo');
         });
     }
 
@@ -26,6 +27,7 @@ return new class extends Migration {
     {
         Schema::table('houses', function (Blueprint $table) {
             $table->string('address', 100)->change();
+            //$table->renameColumn('indirizzo', 'address');
         });
     }
 };

@@ -104,13 +104,13 @@ git push -u origin main
 #creare le migration per le tabelle ecc
 
 #per creazione:
-php arisan make:migration create_nometabella_table
+php artisan make:migration create_nometabella_table
 
 #per aggiunta campo nome migration:
-php arisan make:migration add_momecampo_to_nometabella_table
+php artisan make:migration add_momecampo_to_nometabella_table
 
 #per modifica campi e tabelle nome migration:
-php arisan make:migration update_nometabella_table --table=nometabella
+php artisan make:migration update_nometabella_table --table=nometabella
 
 #dentro il file  migration 
 	public function up()

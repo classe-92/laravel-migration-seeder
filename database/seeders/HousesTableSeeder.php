@@ -22,7 +22,7 @@ class HousesTableSeeder extends Seeder
         // $houses = json_decode($houses, true);
 
         //con array php in config
-        //$houses = config('nomeefile');
+        //$houses = config('nomefile');
 
         //con file csv
         // $houses = $this->getCsvData(__DIR__ . '/houses.csv');
