@@ -10,5 +10,5 @@
             @endforeach
         </ul>
     </main>
-    <p></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, commodi.</p>
 @endsection
