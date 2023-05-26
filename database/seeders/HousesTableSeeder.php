@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 use App\Models\House;
+use App\Functions\Helpers as Help;
 
 class HousesTableSeeder extends Seeder
 {
@@ -25,7 +26,7 @@ class HousesTableSeeder extends Seeder
         //$houses = config('nomefile');
 
         //con file csv
-        // $houses = $this->getCsvData(__DIR__ . '/houses.csv');
+        // $houses = Help::getCsvData(__DIR__ . '/immo.csv');
         // dd($houses);
 
         for ($i = 0; $i < 50; $i++) {
@@ -44,57 +45,27 @@ class HousesTableSeeder extends Seeder
             $newHouse->save();
         }
 
-        //  foreach ($houses as $index => $row) {
-// 		        //dd($row, $index);
-// 		        if ($index !== 0) {
-// 		            $house = new House();
-// 		            $house->image = $row[0];
-// 		            $house->reference = $row[1];
-// 		            $house->address = $row[2];
-// 		            $house->postal_code = $row[3];
-// 		            $house->city = $row[4];
-// 		            $house->state = $row[5];
-// 		            $house->square_meters = $row[6];
-// 		            $house->rooms = $row[7];
-// 		            $house->bathrooms = $row[8];
-// 		            $house->type = $row[9];
-// 		            $house->description = $row[10];
-// 		            $house->price = $row[11];
-// 		            $house->is_available = $row[12];
-// 		            $house->energy_rating = $row[13];
-// 		            $house->save();
-// 		        }
-// 		    }
-// 		}
+        // foreach ($houses as $index => $row) {
+        //     //dd($row, $index);
+        //     if ($index !== 0) {
+        //         $house = new House();
+        //         $house->image = $row[5];
+        //         $house->reference = $row[1];
+        //         $house->address = $row[2];
+        //         $house->postal_code = $row[3];
+        //         $house->city = $row[4];
+        //         $house->state = $row[5];
+        //         $house->square_meters = $row[6];
+        //         $house->rooms = $row[7];
+        //         $house->bathrooms = $row[8];
+        //         $house->type = $row[9];
+        //         $house->description = $row[4];
+        //         $house->price = $row[3];
+        //         $house->is_available = $row[12];
+        //         $house->energy_rating = $row[13];
+        //         $house->save();
+        //     }
+        // }
 
-
-
-
-        //
-    }
-    public function getCsvData(string $path)
-    {
-        // Crea un'array vuota
-        $data = [];
-
-        // Apri il file stream in lettura
-        $file_stream = fopen($path, 'r');
-
-        // Verifica se il file non é stato aperto e mostra errore
-        if ($file_stream === false) {
-            exit('Cannot open the file ' . $path);
-        }
-
-        // leggi le singole righe del csv fino alla fine
-        // fgetcsv restituisce o l'array o false
-        while (($row = fgetcsv($file_stream)) !== false) {
-            // salva ciascuna riga come elemento dell'array
-            $data[] = $row;
-        }
-
-        // chiudi il file
-        fclose($file_stream);
-        // restituisci i dati
-        return $data;
     }
 }
